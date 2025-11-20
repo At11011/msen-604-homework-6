@@ -1,0 +1,52 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=10cm, height=10cm,
+      axis lines=middle,
+      xlabel=$\psi_1$,
+      ylabel=$\psi_2$,
+      xmin=-1.5, xmax=4.5,
+      ymin=-1.5, ymax=2.5,
+      xtick={-1,0,1,2,3,4},
+      ytick={-1,0,1,2},
+      grid=major,
+      grid style={dotted, gray!50},
+      axis equal image=false
+    ]
+
+    % Draw unit circle
+    \draw[gray, thin] (axis cs:0,0) circle [radius=1];
+
+    % Plot the points for φ1 and φ2
+    \addplot[only marks, mark=*, mark size=2pt, blue,
+      point meta=explicit symbolic,
+      nodes near coords,
+    every node near coord/.style={anchor=225}]
+    coordinates {
+      (0.7071,0.7071) [$\phi_1$]
+      (-0.7071,0.7071) [$\phi_2$]
+    };
+
+    % Draw dashed lines to axes for φ1 and φ2
+    \draw[dashed, blue] (axis cs:0.7071,0) -- (axis cs:0.7071,0.7071);
+    \draw[dashed, blue] (axis cs:0,0.7071) -- (axis cs:0.7071,0.7071);
+    \draw[dashed, red] (axis cs:-0.7071,0) -- (axis cs:-0.7071,0.7071);
+    \draw[dashed, red] (axis cs:0,0.7071) -- (axis cs:-0.7071,0.7071);
+
+    % Plot the vector for 2x+3 in ψ-basis
+    \addplot[only marks, mark=*, mark size=2pt, blue,
+      point meta=explicit symbolic,
+      nodes near coords,
+    every node near coord/.style={anchor=45}]
+    coordinates {
+      (4.2426,1.633) [$2x+3$]
+    };
+
+    % Draw vector from origin to 2x+3 point
+    \draw[thick, green, ->] (axis cs:0,0) -- (axis cs:4.2426,1.633);
+
+    % Draw dashed lines to axes for 2x+3
+    \draw[dashed, green] (axis cs:4.2426,0) -- (axis cs:4.2426,1.633);
+    \draw[dashed, green] (axis cs:0,1.633) -- (axis cs:4.2426,1.633);
+
+  \end{axis}
+\end{tikzpicture}

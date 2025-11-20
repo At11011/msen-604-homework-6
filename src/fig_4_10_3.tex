@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=10cm, height=10cm,
+      axis lines=middle,
+      xlabel=$\psi_1$,
+      ylabel=$\psi_2$,
+      xmin=-1.5, xmax=1.5,
+      ymin=-1.5, ymax=1.5,
+      xtick={-1,-0.5,0,0.5,1},
+      ytick={-1,-0.5,0,0.5,1},
+      grid=major,
+      grid style={dotted, gray!50},
+      axis equal image % Important for equal scaling
+    ]
+
+    % Draw unit circle
+    \draw[gray, thin] (axis cs:0,0) circle [radius=1];
+
+    % Plot the points for φ1 and φ2
+    \addplot[only marks, mark=*, mark size=2pt,
+      point meta=explicit symbolic,
+      nodes near coords,
+    every node near coord/.style={anchor=225}]
+    coordinates {
+      (0.7071,0.7071) [$\phi_1$]
+      (-0.7071,0.7071) [$\phi_2$]
+    };
+
+    % Draw dashed lines to axes
+    \draw[dashed, blue] (axis cs:0.7071,0) -- (axis cs:0.7071,0.7071);
+    \draw[dashed, blue] (axis cs:0,0.7071) -- (axis cs:0.7071,0.7071);
+    \draw[dashed, red] (axis cs:-0.7071,0) -- (axis cs:-0.7071,0.7071);
+    \draw[dashed, red] (axis cs:0,0.7071) -- (axis cs:-0.7071,0.7071);
+
+  \end{axis}
+\end{tikzpicture}

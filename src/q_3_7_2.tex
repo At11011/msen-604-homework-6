@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=8cm,
+      height=6cm,
+      axis lines=middle,
+      xmin=0, xmax=1,
+      ymin=0, ymax=1,
+      xtick=\empty,
+      ytick=\empty,
+      xlabel={Wavevector $k_z$},
+      ylabel={Energy $E$},
+      every axis x label/.style={at={(ticklabel* cs:1)}, anchor=west},
+      every axis y label/.style={at={(ticklabel* cs:1)}, anchor=south},
+    ]
+    % Curve: quartic-like with minima
+    \addplot[
+      domain=0:1,
+      samples=200,
+      thick,
+    ] {0.1 + 4*(x-0.0)^2*(x-0.75)^2 + 0.2*x};
+
+    % Points A–D
+    \node[label={above:A},circle,fill,inner sep=1.5pt] at (axis
+    cs:0.1,{0.1 + 4*(0.1-0.0)^2*(0.1-0.75)^2 + 0.2*0.1}) {};
+    \node[label={above:B},circle,fill,inner sep=1.5pt] at (axis
+    cs:0.4,{0.1 + 4*(0.4-0.0)^2*(0.4-0.75)^2 + 0.2*0.4}) {};
+    \node[label={above:C},circle,fill,inner sep=1.5pt] at (axis
+    cs:0.5,{0.1 + 4*(0.5-0.0)^2*(0.5-0.75)^2 + 0.2*0.5}) {};
+    \node[label={above:D},circle,fill,inner sep=1.5pt] at (axis
+    cs:0.7,{0.1 + 4*(0.7-0.0)^2*(0.7-0.75)^2 + 0.2*0.7}) {};
+  \end{axis}
+\end{tikzpicture}
