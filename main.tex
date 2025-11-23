@@ -41,7 +41,13 @@ $.
       b \\ a \\
     \end{pmatrix} &
     \langle s|\hat{\boldsymbol{\sigma}}_x|s\rangle &=
-    a^*b + b^*a = 2\mathbb{R}(a^*b) \\
+    a^*b + b^*a = 2\Re(a^*b) \\
+    2\Re(a^*b) &= 2\cos\frac{\theta}{2}\sin\frac{\theta}{2}\cos\phi = \sin\theta\cos\phi \\
+    \sigma_y|s\rangle &= \begin{pmatrix} -ib \\ ia \end{pmatrix} \\
+    \langle s|\sigma_ys\rangle&=-ia^*b+ib*a = 2\Im(b^*a) \\
+    2\Im(b^*a) &= 2\cos\frac\theta2\sin\theta2\sin\phi = \sin\theta\sin\phi \\
+    \sigma_z|s\rangle&=\begin{pmatrix}a\\-b\end{pmatrix} & \langle s|\sigma_z|s\rangle&=|a|^2-|b|^2=\cos^2\frac\theta2-\sin^2\frac\theta2=\cos\theta \\
+    \Aboxed{\langle s|\hat{\boldsymbol{\sigma}}|s\rangle&= \bm{i}\sin\theta\cos\phi+\bm{j}\sin\theta\sin\phi+\bm{k}\cos\theta}
   \end{align*}
 }
 
@@ -59,7 +65,13 @@ What is the expectation value of the electron spin magnetic moment?
 
 \boxedanswer{
   \begin{align*}
-    1
+      |s\rangle &= \frac{1}{\sqrt2}\begin{pmatrix}1\\i\end{pmatrix} \\
+      \langle\sigma_i\rangle&=\langle s|\sigma_i|s\rangle \\
+      \langle\sigma_x\rangle&=\psi^\dagger\sigma_x\psi=\frac{1}{2}\begin{pmatrix}1&-i\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}1\\i\end{pmatrix}=0\\
+      \langle\sigma_y\rangle&=\psi^\dagger\sigma_x\psi=\frac{1}{2}\begin{pmatrix}1&-i\end{pmatrix}\begin{pmatrix}0&-i\\i&0\end{pmatrix}\begin{pmatrix}1\\i\end{pmatrix}=1\\
+      \langle\sigma_z\rangle&=\psi^\dagger\sigma_x\psi=\frac{1}{2}\begin{pmatrix}1&-i\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}1\\i\end{pmatrix}=0\\
+      \langle\hat{\boldsymbol{\sigma}}_z\rangle&=\hat y \\
+      \Aboxed{\langle\hat{\boldsymbol{\mu}}_e\rangle&=g\mu_B\hat y}
   \end{align*}
 }
 
@@ -74,7 +86,21 @@ and operate on it with
 the $\hat\sigma_z$ operator. Describe the result of this operation in terms of
 a rotation of the spin polarization vector on the Bloch sphere.
 
-\pagebreak
+\boxedanswer{
+    \begin{align*}
+        |s\rangle&=\cos\frac{\theta}{2}|\uparrow\rangle+e^{i\theta}\sin\frac\theta2|\downarrow\rangle\\
+        \hat\sigma_z&=\begin{pmatrix}1&0\\0&-1\end{pmatrix}\\
+        \hat\sigma_z|s\rangle&=\cos\frac\theta2|\uparrow-e^{i\theta}\sin\frac\theta2|\downarrow\rangle=\cos\frac\theta2|\uparrow\rangle+e^{i(\phi+\pi)}\sin\frac\theta2|\downarrow\rangle\\
+        \bm{n}&=(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)\\
+        \Aboxed{\bm{n'}&=(\sin\theta\cos(\phi+\phi),\sin\theta\sin(\phi+\pi),\cos\theta) = 
+        (-\sin\theta\cos\phi,-\sin\theta\sin\phi, \cos\theta)} \\
+        (x,y,z) &\rightarrow(-x,-y,z)
+    \end{align*}
+
+    $\hat\sigma_z$ rotates by $\pi$ on the z-axis of the Bloch sphere, flipping the x and y components,
+    but not changing the z axis.
+
+}
 
 \pagebreak
 
